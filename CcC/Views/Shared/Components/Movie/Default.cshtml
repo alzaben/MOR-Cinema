@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Movie>
+<style>
+    .clamp {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3; /* Number of lines to display */
+    }
+</style>
+<section id="trend" class="pt-4 pb-5"  >
+
+    <div class="container">
+
+        <div class="row trend_1">
+
+            <div class="col-md-6 col-6">
+
+                <div class="trend_1l">
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-6">
+            </div>
+
+        </div>
+
+        <div class="row trend_2 mt-4">
+
+
+
+            <div class="carousel-inner">
+
+                <div  class="carousel-item active"  >
+
+                    <div class="trend_2i row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-3 col-6" style="padding:10px" >
+
+                            <div class="trend_2im clearfix position-relative">
+
+                                <div class="trend_2im1 clearfix">
+
+                                    <div class="grid">
+
+                                        <figure class="effect-jazz mb-0">
+
+
+                                                <a href="/Cinema/Index?movieId=@item.MovieId">@item.Name <img src="@Url.Content(item.Img)" style="height:250px;width:300px;border-image:fill " alt="img25"></a>
+                                                <br />
+                                                <!-- <a asp-action="Index" asp-controller="Cinema" asp-route-id="@item.MovieId"><img src="@Url.Content(item.Img)" style="height:250px;width:300px;border-image:fill " alt="img25"></a>-->
+                                                
+                                        </figure>
+
+                                    </div>
+                                    <div>
+                                            
+                                            <a asp-action="MovieDetails" asp-route-id="@item.MovieId" asp-controller="Home"  >Details</a>
+                                    </div>
+                          
+
+                                </div>
+
+                               
+
+                            </div>
+
+                            <div class="trend_2ilast bg_grey p-3 clearfix">
+
+                                <h5><a class="col_red" href="#">@item.Name</a></h5>
+
+                                    <p class="mb-2 clamp">@item.Description</p>
+
+                
+
+                                
+                                
+
+                            </div>
+                             
+                        </div>
+                        }
+      
+
+
+
+                    </div>
+
+                </div>
+
+               
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    </div>
+
+</section>

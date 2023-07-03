@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "SnacksB";
+}
+
+@model Snack
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MOR Cinema</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/global.css" rel="stylesheet">
+    <link href="~/css/about.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/team.js"></script>
+
+
+
+</head>
+<body>
+
+
+    <section id="team" class="pt-4 pb-4 bg_grey">
+        <div class="container-xl">
+            <div class="team_1i row">
+                <div class="col-md-4">
+                    <div class="team_1i1 clearfix position-relative">
+                        <div class="team_1i1i clearfix">
+                            <div class="grid clearfix">
+                                <figure class="effect-jazz mb-0" style="height: 350px;">
+                                    <a href="#"><img src="~/img/Cola.jpg" class="w-100" alt="abc"></a>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="team_1i1i1 clearfix position-absolute w-100 bottom-0" style="padding: 0px 15px 0px 15px; background: #000000c2; height: 82%;">
+
+                            <h6>Popcorn and Others</h6>
+                            <form method="post" asp-action="AddToCart">
+                                <div class="form-group">
+                                    <label for="snackId">Select a snack:</label>
+                                    <select class="form-control" id="snackId" name="snackId">
+                                        @foreach (var snack in ViewBag.Snacks)
+                                        {
+                                            <option value="@snack.SnackId">@snack.SnackName - @snack.Price.ToString("C")</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="size">Select a size:</label>
+                                    <select class="form-control" id="size" name="size">
+                                        <option value="small">Small</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity">Select quantity:</label>
+                                    <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1">
+                                </div>
+                                <input type="hidden" name="listType" value="snacks" />
+                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container-xl">
+
+                    <div class="row contact_2 mt-4">
+                        <div class="col-md-9">
+                            <div class="contact_2l row">
+                                <div class="col-md-12">
+
+                                    <div style="display: flex; justify-content: center; align-items: center;">
+                                        <a asp-action="Snacks" style="text-decoration: none; margin-right: 10px;">
+                                            <div style="text-align: center;">
+                                                <h1 style="margin-bottom: 10px;">Snacks</h1>
+                                                <img src="~/img/snacks.jpg" alt="Image Description" style="height: 150px; width: 200px;">
+                                            </div>
+                                        </a>
+
+                                        <a asp-action="SnacksB" style="text-decoration: none; margin-right: 10px;">
+                                            <div style="text-align: center;">
+                                                <h1 style="margin-bottom: 10px;">Drinks</h1>
+                                                <img src="~/img/drinks.jpg" alt="Image Description" style="height: 150px; width: 200px;">
+                                            </div>
+                                        </a>
+
+
+                                    </div>
+
+
+
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+    </section>
+
+
+
+</body>
+
+</html>

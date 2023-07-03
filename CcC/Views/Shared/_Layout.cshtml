@@ -1,0 +1,118 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MOR Cinema</title>
+	<link href="~/css/bootstrap.min.css" rel="stylesheet">
+	<link href="~/css/font-awesome.min.css" rel="stylesheet">
+	<link href="~/css/global.css" rel="stylesheet">
+	<link href="~/css/index.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+	<script src="~/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/team.js"></script>
+	
+</head>
+<body >
+
+	<section id="top">
+		<div class="container">
+			<div class="row top_1">
+				<div class="col-md-3">
+					<div class="top_1l pt-1">
+						<h3 class="mb-0"><a class="text-white" asp-controller="Home" asp-action="Index"><i class="fa fa-video-camera col_red me-1"></i> MOR Cinema</a></h3>
+					</div>
+				</div>
+				
+				<div class="col-md-5">
+					<form method="get" asp-action="Search" asp-controller="Home">
+					<div class="top_1m">
+						<div class="input-group">
+							
+								<input type="text" name="searchTerm" class="form-control bg-black" placeholder="Search Site...">
+							<span class="input-group-btn">
+                                    <input type="submit" value="Search" class="btn btn text-white bg_red rounded-0 border-0" />
+							</span>
+								
+								
+							
+							
+						</div>
+					</div>
+                    </form>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="top_1l pt-1">
+						 @if (signInManager.IsSignedIn(User))
+						{
+							<a asp-action="Logout" asp-controller="Account" class="text-white">Logout</a>
+
+
+						}
+						else
+						{
+							<a asp-action="Login" asp-controller="Account" class="text-white">Login</a>
+						}
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!--Header-->
+	<section id="header">
+		@await Component.InvokeAsync("Menu")
+	</section>
+
+	
+
+	<div class="container">
+		@RenderBody()
+	</div>
+
+	<section id="footer">
+		<div class="footer_m clearfix">
+			<div class="container">
+				<div class="row footer_1" style="background: black;" >
+					<div class="col-md-4">
+						<div class="footer_1i" > 
+							<h3><a class="text-white" href="index.html"><i class="fa fa-video-camera col_red me-1"></i> MOR Cinema</a></h3>
+							<p class="mt-3">The Best Website That You Can Have All You Want About Cinemas And Have An Easy Way For Buying Ticket and team </p>
+							<h6 class="fw-normal"><i class="fa fa-map-marker fs-5 align-middle col_red me-1"></i> Amman , Jordaan </h6>
+							<h6 class="fw-normal mt-3"><i class="fa fa-envelope fs-5 align-middle col_red me-1"></i> MORCinemaoweners@gmail.com</h6>
+							<h6 class="fw-normal mt-3 mb-0"><i class="fa fa-phone fs-5 align-middle col_red me-1"></i>  +962788489828</h6>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		window.onscroll = function () { myFunction() };
+
+		var navbar_sticky = document.getElementById("navbar_sticky");
+		var sticky = navbar_sticky.offsetTop;
+		var navbar_height = document.querySelector('.navbar').offsetHeight;
+
+		function myFunction() {
+			if (window.pageYOffset >= sticky + navbar_height) {
+				navbar_sticky.classList.add("sticky")
+				document.body.style.paddingTop = navbar_height + 'px';
+			} else {
+				navbar_sticky.classList.remove("sticky");
+				document.body.style.paddingTop = '0'
+			}
+		}
+	</script>
+
+</body>
+
+</html>

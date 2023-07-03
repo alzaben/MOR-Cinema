@@ -1,0 +1,149 @@
+﻿@model CcC.Models.FeedBack
+@{
+    ViewData["Title"] = "FeedBack";
+}
+
+<h1>FeedBack</h1>
+
+<section id="contact" class="pt-4 pb-4 bg_grey">
+ <div class="container-xl">
+  <div class="row contact_1 bg_dark  pt-5 pb-5">
+   <div class="col-md-3">
+    <div class="contact_1i row">
+	 <div class="col-md-2 col-2">
+	  <div class="contact_1il">
+	   <span class="col_red fs-3"><i class="fa fa-map-marker"></i></span>
+	  </div>
+	 </div>
+	 <div class="col-md-10 col-10">
+	  <div class="contact_1ir">
+	   <h5 class="col_red">Cinemas Addresses</h5>
+	   <p class="mb-0"> <h6> TAJ Cinema</h6> Taj Lifestyle Center, Pr. Hashim St 72, Amman</p>
+	   <p class="mb-0"> <h6>Prime Cinema Abdali</h6> 3rd Floor Abdali Mall, Amman</p>
+	   <p class="mb-0"> <h6>Grand Cinemaa</h6>   City Mall Offsite ATM, King Abdullah Al Thani Street, Amman</p>
+	   <p class="mb-0"> <h6>Cinema City</h6>  Mekka Mall Amman Amman، 11185 </p>
+	  </div>
+	 </div>
+	</div>
+   </div>
+   <div class="col-md-3">
+    <div class="contact_1i row">
+	 <div class="col-md-2 col-2">
+	  <div class="contact_1il">
+	   <span class="col_red fs-3"><i class="fa fa-clock-o"></i></span>
+	  </div>
+	 </div>
+	 <div class="col-md-10 col-10">
+	  <div class="contact_1ir">
+	   <h5 class="col_red">Cinema Hours</h5>
+	   <p class="mb-0">All Days - 11.00AM - 12.00PM</p>
+	   
+	  </div>
+	 </div>
+	</div>
+   </div>
+   <div class="col-md-3">
+    <div class="contact_1i row">
+	 <div class="col-md-2 col-2">
+	  <div class="contact_1il">
+	   <span class="col_red fs-3"><i class="fa fa-envelope"></i></span>
+	  </div>
+	 </div>
+	 <div class="col-md-10 col-10">
+	  <div class="contact_1ir">
+	   <h5 class="col_red">E-mail</h5>
+	   <p class="mb-0"> <h6> TAJ Cinema</h6>marketing@tajcinemas.com  admin@tajcinemas.com </p>
+	   <p class="mb-0"> <h6>Prime Cinema Abdali</h6> info@prime.jo</p>
+	   <p class="mb-0"> <h6>Grand Cinemaa</h6> baher@srndco.com</p>
+	   <p class="mb-0"> <h6>Cinema City</h6>  info@kurdigroup.jo </p>
+	  </div>
+	 </div>
+	</div>
+   </div>
+   <div class="col-md-3">
+    <div class="contact_1i row">
+	 <div class="col-md-2 col-2">
+	  <div class="contact_1il">
+	   <span class="col_red fs-3"><i class="fa fa-phone"></i></span>
+	  </div>
+	 </div>
+	 <div class="col-md-10 col-10">
+	  <div class="contact_1ir">
+	   <h5 class="col_red">Phone Numbers</h5>
+	   <p class="mb-0"> <h6> TAJ Cinema</h6>+96265927552</p>
+	   <p class="mb-0"> <h6>Prime Cinema Abdali</h6> +96264011300</p>
+	   <p class="mb-0"> <h6>Grand Cinemaa</h6> +96265818808</p>
+	   <p class="mb-0"> <h6>Cinema City</h6>  +96265527948 - +96265527945 </p>
+	  </div>
+	 </div>
+	</div>
+   </div>
+  </div>
+  <div class="row contact_2 mt-4">
+	<div class="col-md-9">
+	 <div class="contact_2l row">
+		<div class="col-md-12" >
+			<h5>Location</h5>
+						<a href="https://shorturl.at/aiwI8"><img src="~/img/og.png"  alt="Image Description" style="height: 150px; ; width: 200px;"></a>
+			  
+						<a href="https://shorturl.at/deUZ0">
+				<img src="~/img/prime.png"  alt="Image Description" style=" height: 150px ; width: 200px;">
+			  </a>
+						<a href="https://shorturl.at/hAIPX">
+				<img src="~/img/grand.png"  alt="Image Description" style=" height: 150px ; width: 200px;">
+			  </a>
+						<a href="https://shorturl.at/uxMW4">
+				<img src="~/img/cinema-city-1.png"  alt="Image Description" style=" height: 150px ; width: 200px;">
+			  </a>
+
+			  
+
+
+
+		</div>
+	 
+  <div class="row contact_2 mt-4">
+						<form  method="post" asp-action="FeedBack">
+   <div class="col-md-9">
+    <div class="contact_2l row">
+	 <div class="col-md-12">
+	  <h4>FeedBack</h4>
+	 </div> 
+	</div>
+	
+	<div class="contact_2l1 mt-3 row">
+	 <div class="col-md-6">
+	  <div class="contact_2l1i">
+	    <input class="form-control" asp-for="Name" placeholder="Name" type="text">
+	  </div>
+	 </div> 
+	 <div class="col-md-6">
+	  <div class="contact_2l1i">
+	    <input class="form-control" asp-for="Email" placeholder="Email" type="text">
+	  </div>
+	 </div>
+	 
+	</div>
+	
+	
+	 
+	</div>
+						
+	
+	<div class="contact_2l1 mt-3 row">
+	 <div class="col-md-12">
+	  <div class="contact_2l1i">
+	    <textarea placeholder="Comment" asp-for="Message" class="form-control form_text"></textarea>
+		<h6 class="mt-3 mb-0">
+											<input type="submit" value="Submit" class="button" />
+			</h6>
+	  </div>
+	 </div> 
+	</div>
+						</form>
+   </div>
+  </div>
+ </div>
+
+</div>
+</section>

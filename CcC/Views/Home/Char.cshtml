@@ -1,0 +1,139 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MOR Cinema</title>
+    <script src="~/js/seatssss.js"></script>
+    <link href="~/css/seats.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="screen" style="height: 350px;"></div>
+        <div class="text">
+            <p>You have selected <span id="count">0</span> seats.</p>
+        </div>
+    </div>
+    <div class="button">
+        <form asp-action="Index">
+            <button onclick="bookSeats()">Book</button>
+        </form>
+
+
+    </div>
+
+    <script>
+        const seats = document.querySelectorAll('.seat');
+        const count = document.getElementById('count');
+
+        let selectedSeatsCount = 0;
+
+        // Seat click event
+        seats.forEach(function (seat) {
+            seat.addEventListener('click', function () {
+                if (!seat.classList.contains('occupied')) {
+                    seat.classList.toggle('selected');
+                    selectedSeatsCount = document.querySelectorAll('.seat.selected').length;
+                    count.innerText = selectedSeatsCount;
+                }
+            });
+        });
+
+        function bookSeats() {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            selectedSeats.forEach(function (seat) {
+                seat.classList.remove('selected');
+                seat.classList.add('occupied');
+            });
+            selectedSeatsCount = 0;
+            count.innerText = selectedSeatsCount;
+        }
+    </script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

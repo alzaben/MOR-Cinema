@@ -1,0 +1,89 @@
+﻿@model List<Cinema>
+@{
+    var movieId = ViewBag.MovieId;
+}
+<section id="trend" class="pt-4 pb-5">
+
+    <div class="container">
+
+        <div class="row trend_1">
+
+            <div class="col-md-6 col-6">
+
+                <div class="trend_1l">
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-6">
+            </div>
+
+        </div>
+
+        <div class="row trend_2 mt-4">
+
+
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+
+                    <div class="trend_2i row">
+                        @foreach (var cinema in Model)
+                        {
+                            <div class="col-md-3 col-6" style="padding:10px">
+
+                                <div class="trend_2im clearfix position-relative">
+
+                                    <div class="trend_2im1 clearfix">
+
+                                        <div class="grid">
+
+                                            <figure class="effect-jazz mb-0">
+
+
+                                                <a href="/Seat/Index?cinemaId=@cinema.Id&movieId=@movieId">@cinema.Name <img src="@Url.Content(cinema.Img)" style="height:250px;width:300px;border-image:fill " alt="img25"></a>
+                                                <br />
+                                                <!-- <a asp-action="Index" asp-controller="Cinema" asp-route-id="@cinema.MovieId"><img src="@Url.Content(cinema.Img)" style="height:250px;width:300px;border-image:fill " alt="img25"></a>-->
+
+                                            </figure>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                    
+
+                                </div>
+
+                                
+
+                            </div>
+                        }
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    </div>
+
+</section>
+
+ 

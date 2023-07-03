@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Menu>
+
+<section id="header" >
+    <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" asp-action="Index" asp-controller="Home"><i class="fa fa-video-camera col_red me-1"></i> MOR Cinema</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-0">
+                    @foreach (var item in Model)
+                    {
+                         <li class="nav-item">
+                            <a class="nav-link  active" aria-current="page" asp-controller="Home" asp-action="@item.MenuUrl">@item.MenuTitle</a>
+                    </li>
+                    }
+                   
+                    
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>

@@ -1,0 +1,8 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<section id="center" class="center_home">
+	@await Component.InvokeAsync("Slider")
+</section>
+@await Component.InvokeAsync("Movie")
+@await Component.InvokeAsync("Snack")

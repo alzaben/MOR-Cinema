@@ -1,0 +1,108 @@
+﻿@model IEnumerable<CcC.Models.Slider>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.starring)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Runtime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Traller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsPublished)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.starring)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Runtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Traller)
+            </td>
+                <td>
+                    <img width="150px" src="@Url.Content(item.Img)" />
+
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPublished)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SliderId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SliderId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SliderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

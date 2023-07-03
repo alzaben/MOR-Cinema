@@ -1,0 +1,90 @@
+﻿@model CcC.Models.ViewModels.SliderViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Slider</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubTitle" class="control-label"></label>
+                <input asp-for="SubTitle" class="form-control" />
+                <span asp-validation-for="SubTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rate" class="control-label"></label>
+                <input asp-for="Rate" class="form-control" />
+                <span asp-validation-for="Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SliderDescription" class="control-label"></label>
+                <input asp-for="SliderDescription" class="form-control" />
+                <span asp-validation-for="SliderDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="starring" class="control-label"></label>
+                <input asp-for="starring" class="form-control" />
+                <span asp-validation-for="starring" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genres" class="control-label"></label>
+                <input asp-for="Genres" class="form-control" />
+                <span asp-validation-for="Genres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Runtime" class="control-label"></label>
+                <input asp-for="Runtime" class="form-control" />
+                <span asp-validation-for="Runtime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Traller" class="control-label"></label>
+                <input asp-for="Traller" class="form-control" />
+                <span asp-validation-for="Traller" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Img" class="control-label"></label>
+                <input asp-for="Img" class="form-control" />
+                <span asp-validation-for="Img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreationDate" class="control-label"></label>
+                <input asp-for="CreationDate" class="form-control" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPublished" /> @Html.DisplayNameFor(model => model.IsPublished)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

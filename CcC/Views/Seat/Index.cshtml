@@ -1,0 +1,143 @@
+﻿@{
+    Layout = null;
+}
+
+@model List<Seat>
+@{
+    var cinemaId = ViewBag.CinemaId;
+    var movieId = ViewBag.MovieId;
+}
+
+@{
+    var itemsPerRow = 9;
+    var rowCount = Math.Ceiling((double)Model.Count / itemsPerRow);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MOR Cinema</title>
+    <link href="~/css/seats.css" rel="stylesheet">
+    <style>
+        /* Add your custom CSS styles here */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .seat.unavailable {
+            background-color: lightgray; /* Updated color for reserved seats */
+            color: black; /* Added color for seat text */
+            border: 2px solid black; /* Added border for reserved seats */
+            pointer-events: none; /* Disable interactions with reserved seats */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .seat-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .row-label {
+            width: 30px;
+            text-align: center;
+            margin-right: 5px;
+        }
+
+        .seat {
+            width: 30px;
+            height: 30px;
+            background-color: darkred;
+            border: none;
+            margin: 0 5px;
+        }
+
+            .seat:checked {
+                background-color: darkblue;
+            }
+
+        .seat-label {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .submit-button {
+            display: block;
+            margin: 20px auto;
+        }
+
+        .screen {
+            width: 100%;
+            height: 50px;
+            background-color: peru;
+            margin: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Select Your Seats</h1>
+        <br />
+
+        <form method="post" action="/Home/AddToCart">
+            <h6>Screen Here!</h6>
+            <div class="screen"></div>
+            @for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
+    {
+        <div class="seat-row">
+            <div class="row-label">@((char)('A' + rowIndex))</div>
+            @for (var colIndex = 0; colIndex < itemsPerRow; colIndex++)
+            {
+                var itemIndex = rowIndex * itemsPerRow + colIndex;
+                if (itemIndex >= Model.Count)
+                {
+                    break;
+                }
+
+                var seatItem = Model[itemIndex];
+                <div class="seat @(seatItem.Reserved ? "unavailable" : "")">
+                    <input type="checkbox" name="selectedSeats" value="@seatItem.Id" id="@seatItem.Id" @(seatItem.Reserved ? "disabled" : "") />
+                    <label for="@seatItem.Id" class="seat-label">@seatItem.Number</label>
+                </div>
+            }
+        </div>
+    }
+            <input type="hidden" name="cinemaId" value="@cinemaId" />
+            <input type="hidden" name="movieId" value="@movieId" />
+
+            <input type="submit" value="Add to Cart" class="submit-button" />
+            <button type="button" onclick="clearSelection()">Clear Selection</button>
+
+        </form>
+    </div>
+    <script>
+        // Disable selected seats when the page loads
+        var selectedSeatIds = @Html.Raw(Json.Serialize(ViewBag.SelectedSeatIds));
+        selectedSeatIds.forEach(function (seatId) {
+            var seatCheckbox = document.getElementById(seatId);
+            if (seatCheckbox) {
+                seatCheckbox.disabled = true;
+            }
+        });
+        function clearSelection() {
+            // Get all the seat checkboxes
+            var seatCheckboxes = document.querySelectorAll('input[type="checkbox"][name="selectedSeats"]');
+
+            // Uncheck all the seat checkboxes
+            seatCheckboxes.forEach(function (checkbox) {
+                checkbox.checked = false;
+            });
+        }
+    </script>
+</body>
+</html>
